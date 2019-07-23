@@ -1,6 +1,4 @@
-## О проекте
-
-Пример аутентификации без фреймворков для аутентификации на Angular и Spring (web Angular)
+# Часть 1. Клиент на Angular
 
 ## Команды из package.json
 
@@ -12,39 +10,9 @@
 # yarn deploy // деплоит проект в локальную папку ~/Sites/app
 ```
 
-[Сервер на Spring](https://github.com/lynx-r/angular-spring-authentication-server-spring)
+## Клиент использующий сервер аутентифкикации
 
-## Angular-ngrx-starter
-
-Demo: https://stackblitz.com/github/Angular-RU/angular-ngrx-starter
-
-## Состав [@ngrx/platform](https://github.com/ngrx/platform) :
-
-* [@ngrx/store](https://github.com/ngrx/platform/tree/master/docs/store/README.md) - менеджер состояний на основе RxJS для Angular приложений, вдохновленный Redux
-* [@ngrx/effects](https://github.com/ngrx/platform/tree/master/docs/effects/README.md) - модуль для обработки side effect-ов и передачи их в @ngrx/store через actions
-* [@ngrx/router-store](https://github.com/ngrx/platform/tree/master/docs/router-store/README.md) - добавляет Angular Router в @ngrx/store
-* [@ngrx/store-devtools](https://github.com/ngrx/platform/tree/master/docs/store-devtools/README.md) - интегрирует приложение с 
-  [powerful time-travelling debugger](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en)
-* [@ngrx/entity](https://github.com/ngrx/platform/tree/master/docs/entity/README.md) - модуль для работы с коллекциями записей
-* [@ngrx/schematics](https://github.com/ngrx/platform/tree/master/docs/schematics/README.md) - добавляет в Angular-CLI возможность генерации каркаса NgRx компонентов.
-
-
-# Детали
-# Часть 1. Клиент на Angular
-
-## О чем эта статья
-
-В этой статье, я расскажу как написать простую аутентификацию без помощи готовых решений для данной задачи. Она может быть полезна для новичков, которые хотят написать своё AAA (Authentication, Authorization, and Accounting). [Репозиторий клиента на Angular](https://github.com/lynx-r/angular-spring-authentication-web-angular) и [Репозиторий сервера на Spring](https://github.com/lynx-r/angular-spring-authentication-server-spring).
-
-В данной статье я сделаю выдержки кода клиентской части на Angular.
-
-<cut/>
-
-# Клиент использующий сервер аутентифкикации
-
-В этом разделе я опишу некоторые моменты разработки клиента, код которого можно переработать для взаимодействия с вашим сервером через REST API.
-
-Посмотрим на структуру проекта:
+Структура проекта:
 
     .
     ├── auth                                # Модуль аутентификации
@@ -85,7 +53,7 @@ Demo: https://stackblitz.com/github/Angular-RU/angular-ngrx-starter
     
   ## REST клиент для сервис аутентификации/авторизации/регистрации
 
-Для коммуникации с сервером будем использовать обретки для `@angular/common/http/HttpClient` со следующей иерархией:
+Для коммуникации с сервером будем использовать обёртки для `@angular/common/http/HttpClient` со следующей иерархией:
 
     api-base
     ├── api-security.service
@@ -95,7 +63,7 @@ Demo: https://stackblitz.com/github/Angular-RU/angular-ngrx-starter
 
 Далее, ответы от сервиса `security.service` передаются ниже по иерархии в сервис `auth.service` в нем сохраняется состояние пользователя в `Store` и `Cookies`. `Cookies` используются для восстановления состояния аутнетифицированного пользователя после перезагрузки страницы. И в случае ошибок они обрабатываются путем вывода сообщения в консоль и, затем, передаются вверх по иерархии.
 
-Приведу пример метода аутентификации:
+Пример метода аутентификации:
 
 ```
 authorize(credentials: UserCredentials): Observable<AuthUser | Failure> {
@@ -117,7 +85,7 @@ authorize(credentials: UserCredentials): Observable<AuthUser | Failure> {
 
 Для отправки данных об аутентифицированном пользователе используются прерыватель HTTP запросов, который кладёт в заголовки AccessToken и UserSession.
 
-Приведу пример кода:
+Пример кода:
 
 ```
 intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
@@ -153,19 +121,3 @@ intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> 
 На диаграмм последовательностей (Sequence Diagram) "Диаграмма последовательности взаимодействия с сервером" изображён процесс выполнения запросов к серверу. После загрузки страницы, клиент отправляет запрос на аутентификацию (здесь рассмотрен случай с пройденной аутентификацией без ошибок). Далее, после получения этого запроса, сервер выдаёт токен. Нужно уточнить, что токен выдаётся не просто так, а после авторизации, которая для упрощения схемы не показана. Подробности по авторизации можно прочитать в смежной статье. Затем, после генерации токена на сервере, возвращается ответ клиенту. Клиент сохраняет этот токен и выполняет `ping` запрос к серверу. Сервер проверяет пришедший токен, обрабатывает данные `ping` запроса и генерирует новый токен. В нашем примере, он просто возвращает строку `"${data.getPing()} from ${authUser.getUsername()} and PONG from server"`. После получения ответа с сервера, клиент сохраняет токен и выполняет с этим новым токеном следующий запрос.
 
 Если токен потеряется или клиент его не правильно сохранит, то этот и следующие запросы не пройдут до тех пор, пока пользователь не авторизуется повторно.
-
-# Заключение
-
-В этой статье мы рассмотрели как сделать простой клиент аутентификации с помощью Angular, который упрощает работу с данной связкой.
-
-# Ссылки
-
-* [Часть 2. Сервер на Spring](https://habr.com/post/354862/)
-* [Angular](https://angular.io/)
-* [ngrx](https://ngrx.github.io/)
-* [angular-ngrx-starter](https://github.com/Angular-RU/angular-ngrx-starter)
-
-## UPD
-
-Добавлена ветка improved-security с хешированием паролей перед отправкой на сервер.
-Подробнее: https://eprint.iacr.org/2015/387.pdf

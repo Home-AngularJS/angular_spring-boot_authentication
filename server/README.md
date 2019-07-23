@@ -1,6 +1,6 @@
-## О проекте
 
-Пример аутентификации без фреймворков на Angular и Spring (server Spring)
+
+# Часть 2. Сервер на Spring
 
 ## Профили
 
@@ -10,20 +10,6 @@
 * `prod` - для продакшна.
 
 Чтобы отправлять запросы на веб-клиент, нужно указать `ORIGIN_URL` - Origin веб-клиента на Angular.
-
-[Веб-клиент на Angular](https://github.com/lynx-r/angular-spring-authentication-web-angular)
-
-# Детали
-
-# Часть 2. Сервер на Spring
-
-## О чем эта статья
-
-В этой статье, я расскажу как написать простую аутентификацию без помощи готовых решений для данной задачи. Она может быть полезна для новичков, которые хотят написать своё AAA (Authentication, Authorization, and Accounting). [Репозиторий клиента на Angular и ngrx](https://github.com/lynx-r/angular-spring-authentication-web-angular) и [Репозиторий сервера на Spring](https://github.com/lynx-r/angular-spring-authentication-server-spring).
-
-В данной статье я сделаю выдержки кода серверной части на Spring.
-
-<cut/>
 
 # Сервер аутентификации на Spring
 
@@ -85,7 +71,7 @@
 
 `public Optional<AuthUser> logout(AuthUser authUser)` - Выход или Удаление информации о том, что пользователь сейчас на сайте.
 
-Приведу код авторизации пользователя:
+Код авторизации пользователя:
 
 ```
 // Берем хеш учетных данных пользователя
@@ -124,7 +110,7 @@ if (clientDigest.equals(secureUser.getDigest())) {
 
 В этом примере я сделал некоторые упрощения. Но, здесь, все так же используется функциональные интерфейсы из Java SE 8:
 
-Приведу пример того, как я отвечаю на запрос клиента после его авторизации на сайте:
+Пример того, как я отвечаю на запрос клиента после его авторизации на сайте:
 
 ```
 @PostMapping("authorize")
@@ -171,19 +157,4 @@ Answer ping(@RequestBody PingPayload ping, HttpServletRequest request, HttpServl
 
 Нужно отметить, что всё же пришлось подключить Spring Security для работы с CORS.
 
-Для добавления необходимых заголовков был использован и немного переработан код с StackOverflow. Он находится в классах `CorsFilterAdapter` и `SecurityConfig`.
-
-# Заключение
-
-В этой статье мы рассмотрели как сделать простую аутентификацию "своими руками".
-
-# Ссылки
-
-* [Часть 1. Клиент на Angular](https://habr.com/post/354860/)
-* [Spring](http://spring.io/)
-* [Создание простого RESTful API с Spark Framework](https://habr.com/post/352732/)
-
-## UPD
-
-Добавлена ветка improved-security с хешированием паролей перед отправкой на сервер.
-Подробнее: https://eprint.iacr.org/2015/387.pdf
+Для добавления необходимых заголовков был использован код в классах `CorsFilterAdapter` и `SecurityConfig`.
