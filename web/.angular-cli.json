@@ -9,7 +9,11 @@
       "outDir": "dist",
       "assets": [
         "assets",
-        "favicon.ico"
+        "favicon.ico",
+        "transenix_logo.png",
+        "home_header_center.png",
+        "home_header_logo2.png",
+        "footer.png"
       ],
       "index": "index.html",
       "main": "main.ts",

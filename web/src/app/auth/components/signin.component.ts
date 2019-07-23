@@ -7,15 +7,16 @@ import {AppConstants} from '../../core/config/app-constants';
   selector: 'app-signin',
   template: `
     <div>
-      <div>Войти</div>
+      <img src="../../../transenix_logo.png" width="253"/>
+      <div style="font-style: normal; font-size: 25px; color: darkblue;">Back Office</div>
       <div>
         <form [formGroup]="form" (ngSubmit)="submit()">
           <div>
-            <input type="email" placeholder="Эл. почта"
+            <input type="email" placeholder="Username"
                    formControlName="username">
           </div>
           <div>
-            <input type="password" placeholder="Пароль"
+            <input type="password" placeholder="Password"
                    formControlName="password">
           </div>
           <div *ngIf="errors.length > 0">
@@ -24,7 +25,7 @@ import {AppConstants} from '../../core/config/app-constants';
             </div>
           </div>
           <div class="loginButtons">
-            <button type="submit">Войти</button>
+            <button type="submit">Sign In</button>
           </div>
         </form>
       </div>
@@ -45,6 +46,7 @@ import {AppConstants} from '../../core/config/app-constants';
       display: flex;
       flex-direction: row;
       justify-content: flex-end;
+      padding-top: 6px;
     }
   `]
 })

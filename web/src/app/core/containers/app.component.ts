@@ -24,9 +24,8 @@ import {Failure} from '../../auth/actions/auth';
 @Component({
   selector: 'app-root',
   template: `
-    <a (click)="handleBack()">Назад</a>
+    <!--<a (click)="handleBack()">Назад</a>-->
     <div>
-      <h3>Авторизация и аутентификация на Angular</h3>
       <router-outlet></router-outlet>
     </div>
   `,
