@@ -1,0 +1,9 @@
+spring:
+  profiles:
+    active: @spring.profiles.active@
+
+TOKEN_LENGTH: 16
+RANDOM_STRING_LENGTH: 20
+
+HEADERS: Content-Type,Content-Length,Access-Control-Allow-Origin,Content-Encoding,Vary,access-token,user-session
+METHODS: GET,POST,PUT,OPTIONS,HEADER,DELETE
