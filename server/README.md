@@ -1,6 +1,10 @@
-
-
 # Часть 2. Сервер на Spring
+
+## Команды из Maven
+
+```
+# mvn spring-boot:run // запускает spring-boot server(а)
+```
 
 ## Профили
 
