@@ -87,4 +87,5 @@ table {
 
 table.left-menu a {
   color: white !important;
+  text-decoration: none;
 }

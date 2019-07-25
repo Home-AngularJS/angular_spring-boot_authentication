@@ -21,9 +21,9 @@ import {AuthService} from '../services/auth.service';
     <!--</div>-->
     
     <table width="100%" border="0" style="color: darkblue;">
-      <tr>
-        <td width="200" height="50" style="background:url('../../../home_header_logo2.png'); background-size: 211px 52px;">
-        <td style="background:url('../../../home_header_center.png'); background-size: 250px;" align="right">
+      <tr style="background:url('../../../home_header_center.png'); background-size: 250px;" align="right">
+        <td width="200" height="50" style="background:url('../../../home_header_logo3.png'); background-size: 202px 52px;">
+        <td>
           <table>
             <tr>
               <td height="22"></td>
@@ -51,10 +51,10 @@ import {AuthService} from '../services/auth.service';
     <!--Нужно было бы сделать app-page-ping как контайнер из модуля ping.module-->
     <!--<app-ping></app-ping>-->
 
-    <table width="300" class="left-menu" bgcolor="blue" cellpadding="20" style="height: 745px;">
+    <table width="300" class="left-menu" bgcolor="#00275e" cellpadding="20" style="height: 745px;">
       <tr>
         <td valign="top">
-          <table>
+          <table cellpadding="10">
             <tr><td> <a href="#">Организация</a> </td></tr>
             <tr><td> <a href="#">Терминал</a> </td></tr>
             <tr><td> <a href="#">Лимиты</a> </td></tr>
@@ -74,7 +74,8 @@ import {AuthService} from '../services/auth.service';
     
     <table width="100%" border="0" style="color: darkblue; margin-top: 0%;">
       <tr>
-        <td width="200" height="50" style="background:url('../../../footer.png'); background-size: 200px 52px;">
+        <!--<td width="200" height="50" style="background:url('../../../footer.png'); background-size: 200px 52px;">-->
+        <td width="200" height="50" style="background:#d6d6d6; background-size: 200px 52px;">
           <table>
             <tr>
               <td width="200" align="center">

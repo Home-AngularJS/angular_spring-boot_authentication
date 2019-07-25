@@ -11,8 +11,10 @@
         "assets",
         "favicon.ico",
         "transenix_logo.png",
+        "transenix_logo2.png",
         "home_header_center.png",
         "home_header_logo2.png",
+        "home_header_logo3.png",
         "footer.png"
       ],
       "index": "index.html",
