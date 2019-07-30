@@ -10,14 +10,15 @@
       "assets": [
         "assets",
         "favicon.ico",
-        "transenix_logo.png",
-        "transenix_logo2.png",
-        "home_header_center.png",
-        "home_header_logo2.png",
-        "home_header_logo3.png",
-        "footer.png"
+        "images/transenix_logo.png",
+        "images/transenix_logo2.png",
+        "images/home_header_center.png",
+        "images/home_header_logo2.png",
+        "images/home_header_logo3.png",
+        "images/footer.png"
       ],
       "index": "index.html",
+      "404": "404.html",
       "main": "main.ts",
       "polyfills": "polyfills.ts",
       "test": "test.ts",
@@ -25,7 +26,7 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css"
+        "style/styles.css"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",

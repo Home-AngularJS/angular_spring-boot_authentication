@@ -7,11 +7,11 @@ import {AppConstants} from '../../core/config/app-constants';
   selector: 'app-signin',
   template: `
     <div>
-      <!--<img src="../../../transenix_logo2.png" width="253"/>-->
+      <!--<img src="../../../images/transenix_logo2.png" width="253"/>-->
       <table width="100%" border="0">
         <tr>
           <td width="30%"></td>
-          <td width="30%"><img src="../../../transenix_logo2.png" width="80" height="50"/></td>
+          <td width="30%"><img src="../../../images/transenix_logo2.png" width="80" height="50"/></td>
           <td width="30%"></td>
         </tr>
       </table>

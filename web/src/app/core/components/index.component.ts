@@ -12,17 +12,17 @@ import {AuthService} from '../services/auth.service';
 @Component({
   selector: 'app-index',
   template: `
-    
+
     <!--<div>-->
-      <!--<a routerLink="/auth/SignUp">Зарегистрироваться</a>-->
+    <!--<a routerLink="/auth/SignUp">Зарегистрироваться</a>-->
     <!--</div>-->
     <!--<div *ngIf="!(loggedIn$ | async)">-->
-      <!--<a routerLink="/auth/SignIn">Войти</a>-->
+    <!--<a routerLink="/auth/SignIn">Войти</a>-->
     <!--</div>-->
-    
+
     <table width="100%" border="0" style="color: darkblue;">
-      <tr style="background:url('../../../home_header_center.png'); background-size: 250px;" align="right">
-        <td width="200" height="50" style="background:url('../../../home_header_logo3.png'); background-size: 202px 52px;">
+      <tr style="background:url('../../../images/home_header_center.png'); background-size: 250px;" align="right">
+        <td width="200" height="50" style="background:url('../../../images/home_header_logo3.png'); background-size: 202px 52px;">
         <td>
           <table>
             <tr>
@@ -38,16 +38,15 @@ import {AuthService} from '../services/auth.service';
                       <td width="30"></td>
                     </tr>
                   </table>
-                </div> 
+                </div>
               </td>
             </tr>
           </table>
         </td>
       </tr>
     </table>
-    
-    
-    
+
+
     <!--Нужно было бы сделать app-page-ping как контайнер из модуля ping.module-->
     <!--<app-ping></app-ping>-->
 
@@ -55,26 +54,50 @@ import {AuthService} from '../services/auth.service';
       <tr>
         <td valign="top">
           <table cellpadding="10">
-            <tr><td> <a href="#">Организация</a> </td></tr>
-            <tr><td> <a href="#">Терминал</a> </td></tr>
-            <tr><td> <a href="#">Лимиты</a> </td></tr>
-            <tr><td> <a href="#">Диапазоны приема PAN</a> </td></tr>
-            <tr><td> <a href="#">Языки приложений</a> </td></tr>
-            <tr><td> <a href="#">Группы терминалов</a> </td></tr>
-            <tr><td> <a href="#">Шаблон чека</a> </td></tr>
-            <tr><td> <a href="#">Шаблон карты</a> </td></tr>
-            <tr><td> <a href="#">Ключи безопасности</a> </td></tr>
-            <tr><td> <a href="#">Расписание</a> </td></tr>
-            <tr><td> <a href="#">Коды активации</a> </td></tr>
-            <tr><td> <a href="#">Банки</a> </td></tr>
+            <tr>
+              <td><a href="#">Организация</a></td>
+            </tr>
+            <tr>
+              <td><a href="#">Терминал</a></td>
+            </tr>
+            <tr>
+              <td><a href="#">Группы терминалов</a></td>
+            </tr>
+            <tr>
+              <td><a href="#">Лимиты</a></td>
+            </tr>
+            <tr>
+              <td><a href="#">Диапазоны приема PAN</a></td>
+            </tr>
+            <tr>
+              <td><a href="#">Языки приложений</a></td>
+            </tr>
+            <tr>
+              <td><a href="#">Шаблон чека</a></td>
+            </tr>
+            <tr>
+              <td><a href="#">Шаблон карты</a></td>
+            </tr>
+            <tr>
+              <td><a href="#">Ключи безопасности</a></td>
+            </tr>
+            <tr>
+              <td><a href="#">Расписание</a></td>
+            </tr>
+            <tr>
+              <td><a href="#">Коды активации</a></td>
+            </tr>
+            <tr>
+              <td><a href="#">Банки</a></td>
+            </tr>
           </table>
         </td>
       </tr>
     </table>
-    
+
     <table width="100%" border="0" style="color: darkblue; margin-top: 0%;">
       <tr>
-        <!--<td width="200" height="50" style="background:url('../../../footer.png'); background-size: 200px 52px;">-->
+        <!--<td width="200" height="50" style="background:url('../../../images/footer.png'); background-size: 200px 52px;">-->
         <td width="200" height="50" style="background:#d6d6d6; background-size: 200px 52px;">
           <table>
             <tr>
